@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}Login - CareFirst Hospital{% endblock %}
+
+{% block content %}
+<section class="auth-shell">
+    <div class="auth-grid">
+        <aside class="auth-aside">
+            <div class="auth-aside-badge">
+                <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
+                CareFirst Access
+            </div>
+            <h2 class="auth-aside-title">Welcome back</h2>
+            <p class="auth-aside-sub">
+                Log in to manage hospital appointments and view the optimized queue.
+            </p>
+
+            <div class="auth-points">
+                <div class="auth-point">
+                    <i class="fa-solid fa-shield" aria-hidden="true"></i>
+                    <span>Secure role-based access</span>
+                </div>
+                <div class="auth-point">
+                    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                    <span>Emergency-first priority handling</span>
+                </div>
+                <div class="auth-point">
+                    <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                    <span>Fast, clean, professional UI</span>
+                </div>
+            </div>
+        </aside>
+
+        <div class="auth-card">
+            <div class="auth-card-head">
+                <h2>Login</h2>
+                <p class="auth-card-sub">Enter your email and password to continue.</p>
+            </div>
+
+            {% if error %}
+                <div class="flash error" role="alert">{{ error }}</div>
+            {% endif %}
+
+            <form class="auth-form" method="post" action="{{ url_for('login') }}">
+                <label for="email">Email</label>
+                <div class="input-wrap">
+                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    <input type="email" id="email" name="email" required placeholder="your@email.com" autofocus>
+                </div>
+
+                <label for="password">Password</label>
+                <div class="input-wrap">
+                    <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                    <input type="password" id="password" name="password" required placeholder="••••••••">
+                    <button class="pw-toggle" type="button" aria-label="Show password" data-pw-toggle>
+                        <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>
+                    Log in
+                </button>
+            </form>
+
+            <p class="auth-footer">Don't have an account? <a href="{{ url_for('signup') }}">Sign up</a>.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // UI-only password show/hide
+  (function () {
+    var btn = document.querySelector("[data-pw-toggle]");
+    var input = document.getElementById("password");
+    if (!btn || !input) return;
+    btn.addEventListener("click", function () {
+      var isPw = input.getAttribute("type") === "password";
+      input.setAttribute("type", isPw ? "text" : "password");
+      btn.setAttribute("aria-label", isPw ? "Hide password" : "Show password");
+      var icon = btn.querySelector("i");
+      if (icon) icon.className = isPw ? "fa-regular fa-eye-slash" : "fa-regular fa-eye";
+    });
+  })();
+</script>
+{% endblock %}

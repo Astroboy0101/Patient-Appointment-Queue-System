@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - CareFirst Hospital</title>
+  <meta name="description" content="About the CareFirst Hospital Queue System project team." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="/static/style.css" />
+  <style>
+    .about-wrap { max-width: 1080px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .about-hero { border: 1px solid var(--border); background: rgba(255,255,255,0.78); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.8rem; animation: riseIn 420ms ease-out both; }
+    .about-kicker { display: inline-flex; gap: .5rem; align-items: center; padding: .4rem .7rem; border-radius: 999px; border: 1px solid rgba(13,148,136,.18); background: rgba(13,148,136,.08); color: rgba(15,118,110,1); font-weight: 800; font-size: .9rem; }
+    .about-title { margin: .85rem 0 .35rem; font-size: 2rem; letter-spacing: -.5px; }
+    .about-sub { margin: 0; color: var(--text-muted); max-width: 75ch; }
+    .about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 1.25rem; margin-top: 1.25rem; }
+    .about-card { border: 1px solid rgba(15, 23, 42, 0.10); background: rgba(255,255,255,0.78); border-radius: 16px; padding: 1.2rem; }
+    .about-card h2 { margin: 0 0 .6rem; font-size: 1.15rem; }
+    .about-card pre { margin: 0; white-space: pre-wrap; font-family: var(--mono); background: rgba(2,6,23,.05); border: 1px solid rgba(2,6,23,.08); border-radius: 14px; padding: 1rem; line-height: 1.6; }
+    .coffee { display: flex; align-items: center; gap: .6rem; padding: .9rem 1rem; border-radius: 16px; border: 1px solid rgba(37,99,235,.18); background: rgba(37,99,235,.08); color: rgba(37,99,235,1); font-weight: 800; text-decoration: none; }
+    .coffee:hover { text-decoration: underline; }
+    .back-home { display: inline-flex; align-items: center; gap: .55rem; margin-top: 1rem; }
+    @media (max-width: 980px) { .about-grid { grid-template-columns: 1fr; } .about-title { font-size: 1.7rem; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="CareFirst Hospital & Clinic">
+        <span class="brand-mark" aria-hidden="true"><i class="fa-solid fa-heart-pulse"></i></span>
+        <span class="brand-text">
+          <span class="brand-name">CareFirst</span>
+          <span class="brand-sub">Hospital &amp; Clinic</span>
+        </span>
+      </a>
+      <a class="nav-pill" href="/" style="text-decoration:none;">
+        
+      </a>
+    </div>
+  </header>
+
+  <main class="about-wrap">
+    <section class="about-hero">
+      <div class="about-kicker"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> About Us</div>
+      <h1 class="about-title">CareFirst Hospital Queue System</h1>
+      <p class="about-sub">
+        A clean and professional medical queue management UI designed for a university final project presentation.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <h2>Team</h2>
+          <pre>
+            <h3>📘 Project Information</h3>This project was proudly developed by 3rd Year Biomedical Engineering students 🎓🧬
+            <h3>👨‍🎓 Team Members</h3>   
+           <b>1.Kena Fayera — UGR/5643/16</b>
+           <br>
+           <b>2`Daniel Dea — UGR/7149/16</b>
+           <br>
+           <b>3.Abdurahman Muktar — UGR/2905/16</b>
+           <br>
+           <b>4.Abel Yeshewalem — UGR/7060/16</b>
+           <br>
+           <b>5.Gersam Mussie — UGR/8338/16</b>
+           <br>
+           <b>6.Leulekal Nahusenay — UGR/8263/16</b>
+             <h3>👨‍🏫 Submitted To</h3><b> Mr. Endashew A</b></pre>
+          <a class="btn btn-link back-home" href="/">
+            <i class="fa-solid fa-house" aria-hidden="true"></i>
+            Return to homepage
+          </a>
+        </div>
+
+        <div class="about-card">
+          <h2>Support</h2>
+          <p style="margin:0 0 .8rem; color: var(--text-muted);">☕ Buy me a coffee support link:</p>
+          <a class="coffee" href="https://buymeacoffee.com/fayerakenaf" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
+            buymeacoffee.com/fayerakenaf
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>©2026 KVersion Software Development Team</p>
+  </footer>
+</body>
+</html>

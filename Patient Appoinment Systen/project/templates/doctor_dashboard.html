@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}My Patients - CareFirst Hospital{% endblock %}
+
+{% block content %}
+<section class="dashboard-section">
+    <h2>My Patient List</h2>
+    <p class="dashboard-desc">Queue order: priority (Critical → Emergency → Accident → Normal), then arrival. Mark complete or reschedule.</p>
+
+    <form class="search-bar-form" method="get" action="{{ url_for('doctor_dashboard') }}">
+        <input type="search" name="q" value="{{ search_q }}" placeholder="Search by name, date, time, or priority...">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if queue %}
+        <div class="queue-table-wrap">
+            <table class="queue-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Patient</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Priority</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in queue %}
+                    <tr class="priority-{{ p.priority }}">
+                        <td>{{ loop.index }}</td>
+                        <td>{{ p.name }}</td>
+                        <td>{{ p.appointment_date }}</td>
+                        <td>{{ p.appointment_time }}</td>
+                        <td><span class="badge badge-{{ p.priority }}">{{ p.priority }}</span></td>
+                        <td class="actions-cell">
+                            <form class="inline-form" method="post" action="{{ url_for('doctor_dashboard') }}" style="display:inline;">
+                                <input type="hidden" name="action" value="complete">
+                                <input type="hidden" name="appointment_id" value="{{ p.appointment_id }}">
+                                <button type="submit" class="btn-small btn-complete">Complete</button>
+                            </form>
+                            <form class="inline-form reschedule-form" method="post" action="{{ url_for('doctor_dashboard') }}" style="display:inline;">
+                                <input type="hidden" name="action" value="reschedule">
+                                <input type="hidden" name="appointment_id" value="{{ p.appointment_id }}">
+                                <input type="date" name="new_date" value="{{ p.appointment_date }}" required>
+                                <input type="time" name="new_time" value="{{ p.appointment_time }}" required>
+                                <button type="submit" class="btn-small btn-reschedule">Reschedule</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p class="empty-queue">No patients in the queue.{% if search_q %} Try a different search.{% endif %}</p>
+    {% endif %}
+</section>
+{% endblock %}

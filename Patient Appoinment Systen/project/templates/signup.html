@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}Sign Up - CareFirst Hospital{% endblock %}
+
+{% block content %}
+<section class="auth-shell">
+    <div class="auth-grid">
+        <aside class="auth-aside">
+            <div class="auth-aside-badge">
+                <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+                Create an account
+            </div>
+            <h2 class="auth-aside-title">Join the system</h2>
+            <p class="auth-aside-sub">
+                Sign up as a receptionist or doctor to manage appointments and patient flow.
+            </p>
+
+            <div class="auth-points">
+                <div class="auth-point">
+                    <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
+                    <span>Register patients &amp; priorities</span>
+                </div>
+                <div class="auth-point">
+                    <i class="fa-solid fa-user-doctor" aria-hidden="true"></i>
+                    <span>Doctor dashboard queue view</span>
+                </div>
+                <div class="auth-point">
+                    <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+                    <span>Fast setup for demos</span>
+                </div>
+            </div>
+        </aside>
+
+        <div class="auth-card">
+            <div class="auth-card-head">
+                <h2>Sign Up</h2>
+                <p class="auth-card-sub">Fill the form below to create your account.</p>
+            </div>
+
+            {% if error %}
+                <div class="flash error" role="alert">{{ error }}</div>
+            {% endif %}
+
+            <form class="auth-form" method="post" action="{{ url_for('signup') }}">
+                <label for="full_name">Full name</label>
+                <div class="input-wrap">
+                    <i class="fa-solid fa-id-card" aria-hidden="true"></i>
+                    <input type="text" id="full_name" name="full_name" placeholder="Your name" autofocus>
+                </div>
+
+                <label for="email">Email</label>
+                <div class="input-wrap">
+                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    <input type="email" id="email" name="email" required placeholder="your@email.com">
+                </div>
+
+                <label for="password">Password</label>
+                <div class="input-wrap">
+                    <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                    <input type="password" id="password" name="password" required placeholder="••••••••">
+                    <button class="pw-toggle" type="button" aria-label="Show password" data-pw-toggle>
+                        <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <label for="role">Role</label>
+                <div class="input-wrap">
+                    <i class="fa-solid fa-user-tag" aria-hidden="true"></i>
+                    <select id="role" name="role">
+                        <option value="receptionist">Receptionist</option>
+                        <option value="doctor">Doctor</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+                    Create account
+                </button>
+            </form>
+
+            <p class="auth-footer">Already have an account? <a href="{{ url_for('login') }}">Log in</a>.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // UI-only password show/hide
+  (function () {
+    var btn = document.querySelector("[data-pw-toggle]");
+    var input = document.getElementById("password");
+    if (!btn || !input) return;
+    btn.addEventListener("click", function () {
+      var isPw = input.getAttribute("type") === "password";
+      input.setAttribute("type", isPw ? "text" : "password");
+      btn.setAttribute("aria-label", isPw ? "Hide password" : "Show password");
+      var icon = btn.querySelector("i");
+      if (icon) icon.className = isPw ? "fa-regular fa-eye-slash" : "fa-regular fa-eye";
+    });
+  })();
+</script>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Register Patient - CareFirst Hospital{% endblock %}
+
+{% block content %}
+<section class="form-section">
+    <h2>Register Patient / Add Appointment</h2>
+    {% if error %}
+        <div class="flash error">{{ error }}</div>
+    {% endif %}
+    {% if success %}
+        <div class="flash success">Appointment registered successfully.</div>
+    {% endif %}
+
+    <form class="patient-form" method="post" action="{{ url_for('register_patient') }}">
+        <label for="name">Patient name *</label>
+        <input type="text" id="name" name="name" required placeholder="Full name" autofocus>
+
+        <label for="appointment_date">Appointment date *</label>
+        <input type="date" id="appointment_date" name="appointment_date" required>
+
+        <label for="appointment_time">Appointment time *</label>
+        <input type="time" id="appointment_time" name="appointment_time" required>
+
+        <label for="priority">Priority</label>
+        <select id="priority" name="priority">
+            {% for p in priorities %}
+                <option value="{{ p }}">{{ p|capitalize }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="doctor_id">Assign doctor (optional)</label>
+        <select id="doctor_id" name="doctor_id">
+            <option value="">— None —</option>
+            {% for d in doctors %}
+                <option value="{{ d.id }}">{{ d.name }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Register</button>
+    </form>
+</section>
+{% endblock %}

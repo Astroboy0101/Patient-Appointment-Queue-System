@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% block title %}Home - CareFirst Hospital{% endblock %}
+
+{% block content %}
+<section class="home-hero">
+    <div class="hero-grid">
+        <div class="hero-copy">
+            <p class="hero-kicker">
+                <i class="fa-solid fa-shield-heart" aria-hidden="true"></i>
+                University final project &mdash; Medical queue system
+            </p>
+            <h1 class="hero-title">Smarter appointments. Shorter waits. Better care.</h1>
+            <p class="hero-subtitle">
+                CareFirst Hospital &amp; Clinic uses a priority-based scheduling flow to reduce waiting time and
+                ensure emergency cases get immediate attention.
+            </p>
+
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="{{ url_for('login') }}">
+                    <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>
+                    Log in
+                </a>
+                <a class="btn btn-ghost" href="{{ url_for('signup') }}">
+                    <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+                    Create account
+                </a>
+                <a class="btn btn-link" href="{{ url_for('static', filename='about.html') }}">
+                    <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                    About the team
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-icon" aria-hidden="true"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <div class="stat-body">
+                        <div class="stat-title">Emergency-first</div>
+                        <div class="stat-sub">Critical &amp; emergency prioritized</div>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="stat-icon" aria-hidden="true"><i class="fa-solid fa-user-doctor"></i></div>
+                    <div class="stat-body">
+                        <div class="stat-title">Doctor view</div>
+                        <div class="stat-sub">Optimized queue, reschedule, complete</div>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="stat-icon" aria-hidden="true"><i class="fa-solid fa-calendar-check"></i></div>
+                    <div class="stat-body">
+                        <div class="stat-title">Patient access</div>
+                        <div class="stat-sub">See appointments and add new ones</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-card" aria-label="Demo accounts">
+            <div class="card-top">
+                <div class="card-badge"><i class="fa-solid fa-flask" aria-hidden="true"></i> Demo accounts</div>
+                <h2 class="card-title">Try the system</h2>
+                <p class="card-sub">Use these credentials for presentation and testing.</p>
+            </div>
+
+            <div class="demo-rows">
+                <div class="demo-row">
+                    <div class="demo-role"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i> Doctor</div>
+                    <div class="demo-creds">
+                        <div><span class="mono">fayerakena@doctor.gmail.com</span></div>
+                        <div>Password: <span class="mono">ke123</span></div>
+                    </div>
+                </div>
+                <div class="demo-row">
+                    <div class="demo-role"><i class="fa-solid fa-user" aria-hidden="true"></i> Patient (free pass)</div>
+                    <div class="demo-creds">
+                        <div><span class="mono">tamiratyisakor@gmail.com</span></div>
+                        <div>Password: <span class="mono">patient123</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="features" class="home-section">
+    <div class="section-head">
+        <h2 class="section-title">Modern workflow for hospital queues</h2>
+        <p class="section-sub">Clean roles, simple steps, and a priority-aware queue order.</p>
+    </div>
+
+    <div class="feature-grid">
+        <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true"><i class="fa-solid fa-clipboard-check"></i></div>
+            <h3>Receptionist registration</h3>
+            <p>Register patient details and assign priority: Normal, Accident, Emergency, or Critical.</p>
+        </article>
+        <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></div>
+            <h3>Priority-based scheduling</h3>
+            <p>Emergency cases rise to the top while maintaining a fair order for others.</p>
+        </article>
+        <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true"><i class="fa-solid fa-clock-rotate-left"></i></div>
+            <h3>Reschedule &amp; complete</h3>
+            <p>Doctors can mark visits complete or reschedule quickly without losing context.</p>
+        </article>
+    </div>
+</section>
+
+<section id="how" class="home-section how-section">
+    <div class="section-head">
+        <h2 class="section-title">How it works</h2>
+        <p class="section-sub">A simple and professional flow for a university final project.</p>
+    </div>
+
+    <ol class="steps">
+        <li class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+                <h3>Login</h3>
+                <p>Receptionists, doctors, and patients sign in with their credentials.</p>
+            </div>
+        </li>
+        <li class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+                <h3>Register or add an appointment</h3>
+                <p>Receptionists register patients; patients can add their own appointments.</p>
+            </div>
+        </li>
+        <li class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+                <h3>Serve in the right order</h3>
+                <p>Doctors view an optimized list and handle critical cases first.</p>
+            </div>
+        </li>
+    </ol>
+</section>
+{% endblock %}
