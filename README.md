@@ -16,6 +16,8 @@ Built as a university project with a clear focus on DSA (Data Structures & Algor
 
 🔐👥 Authentication: Login & Sign up with role-based access
 
+
+cool!
 🛠️ Technology Stack
 ⚙️ Backend: Python, Flask
 🎨 Frontend: HTML, CSS, JavaScript
